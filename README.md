@@ -6,7 +6,7 @@ A new Flutter project.
 
 Database of products/items are stored Locally on Mobile Storage.
 
-Internet is required to saved Database information for future use
+Internet is required to saved Database information on cloud for future use
 
 A few resources to get you started if this is your first Flutter project:
 
