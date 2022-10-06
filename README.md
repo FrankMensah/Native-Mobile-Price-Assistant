@@ -2,9 +2,11 @@
 
 A new Flutter project.
 
-## Getting Started
+## A Pricing System that assist businesses to keep track of price
 
-This project is a starting point for a Flutter application.
+Database of products/items are stored Locally on Mobile Storage.
+
+Internet is required to saved Database information on cloud for future use
 
 A few resources to get you started if this is your first Flutter project:
 
