@@ -11,7 +11,6 @@ import 'barcode_edit.dart';
 import 'database_helper.dart';
 import 'get_started.dart';
 import 'models.dart';
-import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 
 class AllProduct extends StatefulWidget {
   const AllProduct({Key? key}) : super(key: key);
@@ -159,7 +158,7 @@ class _AllProductState extends State<AllProduct> {
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w200,
-                      fontSize: 30.0,
+                      fontSize: 25.0,
                       letterSpacing: 3.0),
                 ),
               ],
@@ -180,7 +179,7 @@ class _AllProductState extends State<AllProduct> {
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w200,
-                            fontSize: 20.0,
+                            fontSize: 15.0,
                             letterSpacing: 3.0),
                       )
                     ],
@@ -205,7 +204,9 @@ class _AllProductState extends State<AllProduct> {
                         ),
                         label: Text(
                           "Search products",
-                          style: TextStyle(color: Color(0xFFb5a4e6)),
+                          style: TextStyle(
+                              color: Color(0xFFb5a4e6),
+                              fontWeight: FontWeight.w200),
                         ),
                       ),
                     ),
@@ -289,19 +290,22 @@ class _AllProductState extends State<AllProduct> {
                                 PricoData item = filteredList[index];
                                 return Card(
                                   child: ListTile(
-                                    leading: Text('${item.id}'),
+                                    leading: CircleAvatar(
+                                      backgroundColor: Color(0xFF482b9a),
+                                      radius: 8,
+                                    ),
                                     title: Text(
                                       '${item.productName}',
                                       style: TextStyle(
-                                          fontWeight: FontWeight.w400,
-                                          letterSpacing: 3.0),
+                                          fontWeight: FontWeight.w300,
+                                          letterSpacing: 2.0),
                                     ),
                                     subtitle: Text(
                                         "Ghc" + " " + '${item.productAmount}'),
                                     trailing: Icon(
                                       FontAwesomeIcons.pencil,
                                       color: Color(0xFF482b9a),
-                                      size: 20.0,
+                                      size: 12.0,
                                     ),
                                     onTap: () {
                                       //print(item);

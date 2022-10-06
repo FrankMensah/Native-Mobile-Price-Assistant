@@ -27,8 +27,18 @@ class _OpenSearchState extends State<OpenSearch> {
     });
   }
 
+  int number = 0;
+  void countPeople() async {
+    int? count = await DatabaseHelper.instance.countPeople();
+    setState(() {
+      number = count!;
+      //print(number);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    countPeople();
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
@@ -40,7 +50,7 @@ class _OpenSearchState extends State<OpenSearch> {
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w200,
-                      fontSize: 30.0,
+                      fontSize: 25.0,
                       letterSpacing: 3.0),
                 ),
               ],
@@ -57,11 +67,11 @@ class _OpenSearchState extends State<OpenSearch> {
                   child: Row(
                     children: [
                       Text(
-                        "All Products:",
+                        "All Products" + ": " + number.toString(),
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w200,
-                            fontSize: 20.0,
+                            fontSize: 15.0,
                             letterSpacing: 3.0),
                       )
                     ],
@@ -75,7 +85,7 @@ class _OpenSearchState extends State<OpenSearch> {
                       onChanged: (value) => filterList(value),
                       decoration: InputDecoration(
                         prefixIcon: new Icon(
-                          FontAwesomeIcons.searchengin,
+                          FontAwesomeIcons.magnifyingGlass,
                           color: Color(0xFF482b9a),
                         ),
                         filled: true,
@@ -86,7 +96,9 @@ class _OpenSearchState extends State<OpenSearch> {
                         ),
                         label: Text(
                           "Search products",
-                          style: TextStyle(color: Color(0xFFb5a4e6)),
+                          style: TextStyle(
+                              color: Color(0xFFb5a4e6),
+                              fontWeight: FontWeight.w200),
                         ),
                       ),
                     ),
@@ -117,19 +129,22 @@ class _OpenSearchState extends State<OpenSearch> {
                               PricoData item = filteredList[index];
                               return Card(
                                 child: ListTile(
-                                  leading: Text('${item.id}'),
+                                  leading: CircleAvatar(
+                                    backgroundColor: Color(0xFF482b9a),
+                                    radius: 8,
+                                  ),
                                   title: Text(
                                     '${item.productName}',
                                     style: TextStyle(
-                                        fontWeight: FontWeight.w400,
-                                        letterSpacing: 3.0),
+                                        fontWeight: FontWeight.w300,
+                                        letterSpacing: 2.0),
                                   ),
                                   subtitle: Text(
                                       "Ghc" + " " + '${item.productAmount}'),
                                   trailing: Icon(
                                     FontAwesomeIcons.eye,
                                     color: Color(0xFF482b9a),
-                                    size: 20.0,
+                                    size: 12.0,
                                   ),
                                   onTap: () {
                                     Get.defaultDialog(

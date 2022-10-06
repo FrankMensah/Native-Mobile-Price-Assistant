@@ -497,7 +497,7 @@ class _OpenAdminState extends State<OpenAdmin> {
                             ElevatedButton(
                               onPressed: () {}, //=> OptionDownList,
                               child: new Icon(
-                                FontAwesomeIcons.trash,
+                                FontAwesomeIcons.cartFlatbed,
                                 color: Colors.white,
                                 size: 30.0,
                               ),
@@ -513,7 +513,7 @@ class _OpenAdminState extends State<OpenAdmin> {
                             new GestureDetector(
                               onTap: () {},
                               child: new Text(
-                                "Delete Pricobase",
+                                "Inventory",
                                 style: TextStyle(
                                   fontWeight: FontWeight.w300,
                                   letterSpacing: 1,
